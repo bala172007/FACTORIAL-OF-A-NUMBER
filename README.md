@@ -1,88 +1,70 @@
-# FACTORIAL-OF-A-NUMBER-USING-8051-KEIL
+# FACTORIAL-OF-A-NUMBER
+# FACTORIAL OF A NUMBER USING 8051 (Keil)
 
-**AIM:**
+## AIM
+To write and execute an Assembly language program to perform the factorial of a number using 8051 Keil.
 
-To write and execute Assembly language Program to perform factorial of a number using 8051 keil.
-APPARATUS REQUIRED: Personal computer with Keil software
+---
 
-**ALGORITHM:**
+## APPARATUS REQUIRED
+- Personal computer with Keil software
 
-• Start  
+---
 
-• Input: Read the number n.  
+## ALGORITHM
+1. **Start**
+2. **Input**: Read the number `n`.
+3. **Initialize**:
+   - Set factorial to `1`.
+   - Set `i` to `1`.
+4. **Loop**: While `i` is less than or equal to `n`:
+   - Multiply factorial by `i`.
+   - Increment `i` by `1`.
+5. **Output**: Store or print the value of factorial.
+6. **End**
 
-• Initialize:  
+---
 
-•Set factorial to 1.  
+## FLOWCHART
+<img width="506" height="525" alt="image" src="https://github.com/user-attachments/assets/f3b47187-6f0f-490c-8704-f2973cb2b276" />
 
-•Set i to 1.  
 
-• Loop: While i is less than or equal to n:  
+---
 
-•Multiply factorial by i.  
-
-•Increment i by 1.  
-
-• Output: Store or print the value of factorial.  
-
-• End
-
-**FLOW CHART:**
-<img width="261" height="308" alt="image" src="https://github.com/user-attachments/assets/bffe89f6-3ba9-4294-b817-8b545f680e66" />
-
-**Program:**
-
-ORG 0000H   
-
-MOV A,#04H  
-
-MOV R0,A  
-
-ACALL FACTORIAL  
-
-MOV 40H,A  
-
-SJMP THIN  
-
-FACTORIAL:DEC R0  
-
-CJNE R0,#01H,PRODUCT  
-
-SJMP THICK   
-
-PRODUCT:MOV B,R0  
-
-MUL AB  
-
-ACALL FACTORIAL  
-
-THICK: RET  
-
-THIN:  
-
+## PROGRAM
+```asm
+ORG 0000H
+MOV DPTR,#4500H
+MOVX A,@DPTR
+MOV R0,A
+INC DPTR
+ACALL FACTORIAL
+MOVX @DPTR,A
+SJMP THIN
+FACTORIAL:DEC R0
+CJNE R0,#01H,PRODUCT
+SJMP THICK
+PRODUCT:MOV B,R0
+MUL AB
+ACALL FACTORIAL
+THICK: RET
+THIN:RET
 END
 
-**Output:**  
+```
+OUTPUT
 
-<br>
-<br>
-<br>
+<img width="1907" height="1069" alt="Screenshot 2025-11-06 222923" src="https://github.com/user-attachments/assets/852dd7ce-aa08-40a3-82f7-4c52220aa101" />
 
+MANUAL CALCULATIONS
 
-
-**Manual Calculations:**  
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+![WhatsApp Image 2025-11-06 at 22 43 28_b1c032a6](https://github.com/user-attachments/assets/d23d896d-e448-488c-9d4f-485f3c845896)
 
 
+RESULT
+
+Thus, the factorial of a number was calculated and executed successfully using 8051 Keil.
+
+---
 
 
-
-**Result:**
-
-Thus the factorial of a number using 8051 keil was calculated and shown the output.
